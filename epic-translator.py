@@ -31,7 +31,7 @@ try:
 
 
     layout = [
-            [sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian'], font=f, key='langin', auto_size_text=True), sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian'], font=f, key='langout', pad=(283, 0))],
+            [sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian', 'German', 'Mandarin'], font=f, key='langin', auto_size_text=True), sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian'], font=f, key='langout', pad=(283, 0))],
             [sg.Multiline('Translation Input',key='in', size=(40, 15), font=f, no_scrollbar=True, right_click_menu=['&Right', ['&Copy All', '---', '&Paste', '---', '&Swap::1']]), sg.Button('Translate', key='butt'), sg.Multiline('Translation Output', key='out', size=(40, 15 ), font=f, no_scrollbar=True, right_click_menu=['&Right',['&Copy All::copy2','---', 'Paste::2', '&Swap::1']])],
             [sg.Button('<-->', key='invert', pad=(309,10), size=(5,1), font=f)]
             ]
@@ -53,7 +53,7 @@ try:
                 window['out'].update(translations.text)
             except Exception as e:
                 print(e)
-                sg.popup_error('Invalid Source Language', font=f)
+                sg.popup_error(e, font=f)
         
         if event == 'invert':
             window['langin'].update(values['langout'])
