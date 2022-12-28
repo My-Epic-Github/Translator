@@ -12,15 +12,15 @@ iconlol = images.icon
 desk = winshell.desktop()
 
 
-# path = os.path.join(desk, 'Translator.lnk')
-# target = f'{desk}\Python-Translator\dist\Translator.exe'
-# icon = f'{desk}\Python-Translator\shortcut-icon.ico'
+path = os.path.join(desk, 'Translator.lnk')
+target = f'{desk}\Python-Translator\dist\Translator.exe'
+icon = f'{desk}\Python-Translator\shortcut-icon.ico'
 
-# shell = win32com.client.Dispatch('WScript.Shell')
-# shortcut = shell.CreateShortCut(path)
-# shortcut.Targetpath = target
-# shortcut.IconLocation = icon
-# shortcut.save()
+shell = win32com.client.Dispatch('WScript.Shell')
+shortcut = shell.CreateShortCut(path)
+shortcut.Targetpath = target
+shortcut.IconLocation = icon
+shortcut.save()
 
 
 try:
