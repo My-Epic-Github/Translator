@@ -32,8 +32,8 @@ try:
 
     layout = [
             [sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian'], font=f, key='langin', auto_size_text=True), sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian'], font=f, key='langout', pad=(283, 0))],
-            [sg.Multiline('Translation Input',key='in', size=(40, 15), font=f, no_scrollbar=True, right_click_menu=['&Right', ['&Copy All', '---', '&Paste' ]]), sg.Button('Translate', key='butt'), sg.Multiline('Translation Output', key='out', size=(40, 15 ), font=f, no_scrollbar=True, right_click_menu=['&Right',['&Copy All::copy2','---', 'Paste::2']])],
-            [sg.Button('<-->', key='swap', pad=(309,10), size=(5,1), font=f)]
+            [sg.Multiline('Translation Input',key='in', size=(40, 15), font=f, no_scrollbar=True, right_click_menu=['&Right', ['&Copy All', '---', '&Paste', '---', '&Swap::1']]), sg.Button('Translate', key='butt'), sg.Multiline('Translation Output', key='out', size=(40, 15 ), font=f, no_scrollbar=True, right_click_menu=['&Right',['&Copy All::copy2','---', 'Paste::2', '&Swap::1']])],
+            [sg.Button('<-->', key='invert', pad=(309,10), size=(5,1), font=f)]
             ]
             
 
@@ -55,7 +55,7 @@ try:
                 print(e)
                 sg.popup_error('Invalid Source Language', font=f)
         
-        if event == 'swap':
+        if event == 'invert':
             window['langin'].update(values['langout'])
             window['langout'].update(values['langin'])
         
@@ -70,6 +70,10 @@ try:
         
         elif event == 'Paste::2':
             window['out'].update(pyperclip.paste())
+        
+        elif event == 'Swap::1':
+            window['in'].update(values['out'])
+            window['out'].update(values['in'])
         
         
 except Exception as e:
