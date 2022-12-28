@@ -59,7 +59,8 @@ try:
             window['langin'].update(values['langout'])
             window['langout'].update(values['langin'])
             
-        #hello world    
+        #hello world
+        #penis lmao   
         
         elif event == 'Copy All':
             pyperclip.copy(values['in'])
