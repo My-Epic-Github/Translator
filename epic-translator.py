@@ -25,7 +25,7 @@ shortcut.save()
 
 try:
     f = 'Arial', 10, 'bold'
-    tf = 'Arial ', 12, 'bold', 'underline'
+    tf = 'Impact ', 12, 'bold', 'underline'
     theme = sg.theme('DarkGrey9')
 
 
