@@ -48,11 +48,12 @@ try:
         if event == sg.WIN_CLOSED:
             break
         
-        if event == 'in':
+        if event == 'butt':
             try:
                 trans = Translator()
                 translations = trans.translate(values['in'], dest=values['langout'], src=values['langin'])
                 window['out'].update(f'{translations.text}')
+              
                 
                 
                     
