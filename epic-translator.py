@@ -3,6 +3,7 @@ import PySimpleGUI as sg
 import images
 import pyperclip
 import winshell, os, win32com.client
+import time
 
 
 
@@ -32,7 +33,7 @@ try:
 
     layout = [
             [sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian', 'German', ], font=f, key='langin', auto_size_text=True), sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian', 'German', ], font=f, key='langout', pad=(283, 0))],
-            [sg.Multiline('Translation Input',key='in', size=(40, 15), font=f, no_scrollbar=True, right_click_menu=['&Right', ['&Copy All', '---', '&Paste', '---', '&Swap::1']]), sg.Button('Translate', key='butt'), sg.Multiline('Translation Output', key='out', size=(40, 15 ), font=f, no_scrollbar=True, right_click_menu=['&Right',['&Copy All::copy2','---', 'Paste::2', '&Swap::1']])],
+            [sg.Multiline('Translation Input',key='in', size=(40, 15), enable_events=True, font=f, no_scrollbar=True, right_click_menu=['&Right', ['&Copy All', '---', '&Paste', '---', '&Swap::1']]), sg.Button('Translate', key='butt'), sg.Multiline('Translation Output', key='out', size=(40, 15 ), enable_events=True, font=f, no_scrollbar=True, right_click_menu=['&Right',['&Copy All::copy2','---', 'Paste::2', '&Swap::1']])],
             [sg.Button('<-->', key='invert', pad=(309,10), size=(5,1), font=f)],
             # [sg.Image(images.cheese), sg.Image(images.cheese)]
             ]
@@ -47,15 +48,17 @@ try:
         if event == sg.WIN_CLOSED:
             break
         
-        if event == 'butt':
+        if event == 'in':
             try:
                 trans = Translator()
                 translations = trans.translate(values['in'], dest=values['langout'], src=values['langin'])
                 window['out'].update(f'{translations.text}')
                 
+                
+                    
             except Exception as e:
                 print(e)
-                sg.popup_error(e, font=f)
+               
         
         if event == 'invert':
             window['langin'].update(values['langout'])
