@@ -28,12 +28,12 @@ try:
     f = 'Arial', 10, 'bold'
     tf = 'Impact ', 12, 'bold', 'underline'
     theme = sg.theme('DarkGrey9')
-
+    pf = 'Arial', 10, 'bold'
 
 
     layout = [
             [sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian', 'German', ], font=f, key='langin', auto_size_text=True), sg.Combo(['English', 'French','Spanish','Arabic', 'Dutch', 'Japanese', 'Russian', 'Serbian', 'Romanian', 'Bosnian', 'Finnish', 'Italian', 'German', ], font=f, key='langout', pad=(283, 0))],
-            [sg.Multiline('Translation Input',key='in', size=(40, 15), enable_events=True, font=f, no_scrollbar=True, right_click_menu=['&Right', ['&Copy All', '---', '&Paste', '---', '&Swap::1', '---', '&Clear::1', '---', '&Clear All']]), sg.Button('Translate', key='butt'), sg.Multiline('Translation Output', key='out', size=(40, 15 ), enable_events=True, font=f, no_scrollbar=True,right_click_menu=['&Right',['&Copy All::copy2','---', 'Paste::2', '&Swap::1', '---', '&Clear::2', '---', '&Clear All']])],
+            [sg.Multiline('Translation Input',key='in', size=(40, 15), enable_events=True, font=f, no_scrollbar=True, right_click_menu=['&Right', ['&Copy All', '---', '&Paste', '---', '&Swap::1', '---', '&Clear::1', '---', '&Clear All', '---', '&Help']]), sg.Button('Translate', key='butt'), sg.Multiline('Translation Output', key='out', size=(40, 15 ), enable_events=True, font=f, no_scrollbar=True,right_click_menu=['&Right',['&Copy All::copy2','---', 'Paste::2', '&Swap::1', '---', '&Clear::2', '---', '&Clear All', '---', '&Help']])],
             [sg.Button('<-->', key='invert', pad=(309,10), size=(5,1), font=f)],
             # [sg.Image(images.cheese), sg.Image(images.cheese)]
             ]
@@ -92,6 +92,9 @@ try:
         elif event == 'Clear All':
             window['in']('')
             window['out']('')
+        
+        elif event == 'Help':
+            sg.popup_ok("This is a crappy translator I made. If the language you want to translate isn't listed just type it in yourself and it will probably work.", font=pf)
             
             
         
