@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(
-    ['C:\\Users\\meyee\\OneDrive\\Desktop\\Python-Translator\\epic-translator.py'],
+    ['C:\\Users\\meyee\\Desktop\\Translator\\main.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -41,5 +41,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['C:\\Users\\meyee\\OneDrive\\Desktop\\Python-Translator\\shortcut-icon.ico'],
+    icon=['C:\\Users\\meyee\\Desktop\\Translator\\shortcut-icon.ico'],
 )
