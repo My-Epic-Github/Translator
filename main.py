@@ -13,6 +13,7 @@ import pyttsx3
 iconlol = images.icon
 desk = winshell.desktop()
 engine = pyttsx3.init()
+engine.setProperty('rate', 125)
 def talk(text):
     engine.say(text)
     engine.runAndWait()
