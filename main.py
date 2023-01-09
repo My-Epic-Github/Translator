@@ -19,8 +19,8 @@ def talk(text):
 
 
 path = os.path.join(desk, 'Translator.lnk')
-target = f'{desk}\Python-Translator\dist\Translator.exe'
-icon = f'{desk}\Python-Translator\shortcut-icon.ico'
+target = f'{desk}\Translator\dist\Translator.exe'
+icon = f'{desk}\Translator\shortcut-icon.ico'
 
 shell = win32com.client.Dispatch('WScript.Shell')
 shortcut = shell.CreateShortCut(path)
