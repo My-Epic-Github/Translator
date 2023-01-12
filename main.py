@@ -64,7 +64,7 @@ try:
                 tra = Translator()
                 tr = tra.translate(values['in'], dest=values['langout'], src=values['langin'])
                 window['out'].update(f'{tr.text}')
-                with open('Translation.log', 'a') as file:
+                with open(f'{desk}\Python-Translator\Assets\Translation.log', 'a') as file:
                     file.write('Translation Input:')
                     file.write(values['in'])
                     file.write('  Language Translated to:')
