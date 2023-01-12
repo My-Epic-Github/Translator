@@ -1,7 +1,7 @@
 #imports
 from googletrans import Translator
 import PySimpleGUI as sg
-import images
+from  Assets import images
 import pyperclip
 import winshell, os, win32com.client
 import time
@@ -22,7 +22,7 @@ def talk(text):
 #creates shortcut to .exe
 path = os.path.join(desk, 'Translator.lnk')
 target = f'{desk}\Translator\dist\Translator.exe'
-icon = f'{desk}\Translator\shortcut-icon.ico'
+icon = f'{desk}\Translator\Assets\shortcut-icon.ico'
 
 shell = win32com.client.Dispatch('WScript.Shell')
 shortcut = shell.CreateShortCut(path)
